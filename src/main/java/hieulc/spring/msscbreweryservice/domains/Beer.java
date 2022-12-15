@@ -1,4 +1,4 @@
-package hieulc.spring.msscbreweryservice.domain;
+package hieulc.spring.msscbreweryservice.domains;
 
 import jakarta.persistence.*;
 import lombok.*;

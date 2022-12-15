@@ -1,6 +1,6 @@
-package hieulc.spring.msscbreweryservice.service;
+package hieulc.spring.msscbreweryservice.services;
 
-import hieulc.spring.msscbreweryservice.web.model.BeerDto;
+import hieulc.spring.msscbreweryservice.web.models.BeerDto;
 
 import java.util.UUID;
 

@@ -1,4 +1,4 @@
-package hieulc.spring.msscbreweryservice.web.model;
+package hieulc.spring.msscbreweryservice.web.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,10 +11,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BeerDto {
+public class CustomerDto {
     private UUID id;
-    private String beerName;
-    private String beerStyle;
-    private Long upc;
-
+    private String name;
 }

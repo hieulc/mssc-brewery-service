@@ -1,7 +1,7 @@
-package hieulc.spring.msscbreweryservice.web.controller;
+package hieulc.spring.msscbreweryservice.web.controllers;
 
-import hieulc.spring.msscbreweryservice.service.CustomerService;
-import hieulc.spring.msscbreweryservice.web.model.CustomerDto;
+import hieulc.spring.msscbreweryservice.services.CustomerService;
+import hieulc.spring.msscbreweryservice.web.models.CustomerDto;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

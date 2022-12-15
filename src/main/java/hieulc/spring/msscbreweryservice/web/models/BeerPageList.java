@@ -1,4 +1,4 @@
-package hieulc.spring.msscbreweryservice.web.model;
+package hieulc.spring.msscbreweryservice.web.models;
 
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;

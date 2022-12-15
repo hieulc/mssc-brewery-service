@@ -1,6 +1,6 @@
 package hieulc.spring.msscbreweryservice.boostrap;
 
-import hieulc.spring.msscbreweryservice.domain.Beer;
+import hieulc.spring.msscbreweryservice.domains.Beer;
 import hieulc.spring.msscbreweryservice.repositories.BeerRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

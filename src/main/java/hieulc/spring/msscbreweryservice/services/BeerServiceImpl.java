@@ -1,6 +1,7 @@
-package hieulc.spring.msscbreweryservice.service;
+package hieulc.spring.msscbreweryservice.services;
 
-import hieulc.spring.msscbreweryservice.web.model.BeerDto;
+import hieulc.spring.msscbreweryservice.web.models.BeerDto;
+import hieulc.spring.msscbreweryservice.web.models.v2.BeerStyleEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public class BeerServiceImpl implements BeerService {
     public BeerDto getBeerById(UUID beerId) {
         return BeerDto.builder().id(UUID.randomUUID())
                 .beerName("Galaxy Cat")
-                .beerStyle("Pale Ale")
+                .beerStyle(BeerStyleEnum.ALE)
                 .build();
     }
 

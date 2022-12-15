@@ -1,6 +1,6 @@
-package hieulc.spring.msscbreweryservice.service;
+package hieulc.spring.msscbreweryservice.services;
 
-import hieulc.spring.msscbreweryservice.web.model.CustomerDto;
+import hieulc.spring.msscbreweryservice.web.models.CustomerDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

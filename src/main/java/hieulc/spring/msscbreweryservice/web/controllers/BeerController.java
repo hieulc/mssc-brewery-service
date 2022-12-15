@@ -1,14 +1,17 @@
-package hieulc.spring.msscbreweryservice.web.controller;
+package hieulc.spring.msscbreweryservice.web.controllers;
 
-import hieulc.spring.msscbreweryservice.service.BeerService;
-import hieulc.spring.msscbreweryservice.web.model.BeerDto;
+import hieulc.spring.msscbreweryservice.services.BeerService;
+import hieulc.spring.msscbreweryservice.web.models.BeerDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/beer")
 public class BeerController {
@@ -19,14 +22,15 @@ public class BeerController {
         this.beerService = beerService;
     }
 
-    @GetMapping({"/{beerId}"})
+    @GetMapping(value = {"/{beerId}"},
+                produces = "application/json; charset=UTF-8")
     public ResponseEntity<BeerDto> getBeer(@PathVariable("beerId") UUID beerId){
 
         return new ResponseEntity<>(beerService.getBeerById(beerId), HttpStatus.OK);
     }
 
     @PostMapping("/") // POST - create new beer
-    public ResponseEntity handlePost(@RequestBody BeerDto beerDto){
+    public ResponseEntity handlePost(@RequestBody @Validated BeerDto beerDto){
 
         BeerDto savedDto = beerService.saveNewBeer(beerDto);
 
@@ -37,7 +41,8 @@ public class BeerController {
     }
 
     @PutMapping({"/{beerId}"})
-    public ResponseEntity handleUpdate(@PathVariable("beerId") UUID beerId, @RequestBody BeerDto beerDto){
+    public ResponseEntity handleUpdate(@PathVariable("beerId") UUID beerId,
+                                      @RequestBody @Validated BeerDto beerDto){
 
         beerService.updateBeer(beerId, beerDto);
 
@@ -49,4 +54,6 @@ public class BeerController {
     public void deleteBeer(@PathVariable("beerId") UUID beerId){
         beerService.deleteById(beerId);
     }
+
+
 }
