@@ -2,6 +2,7 @@ package hieulc.spring.msscbreweryservice.web.controllers;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import hieulc.spring.msscbreweryservice.boostrap.BeerLoader;
 import hieulc.spring.msscbreweryservice.services.BeerService;
 import hieulc.spring.msscbreweryservice.web.models.BeerDto;
 import hieulc.spring.msscbreweryservice.web.models.v2.BeerStyleEnum;
@@ -59,7 +60,7 @@ public class BeerControllerTest {
                 .beerName("Beer1")
                 .beerStyle(BeerStyleEnum.ALE)
                 .price(new BigDecimal("2.99"))
-                .upc(123456789012L)
+                .upc(BeerLoader.BEER_1_UPC)
                 .build();
     }
 
