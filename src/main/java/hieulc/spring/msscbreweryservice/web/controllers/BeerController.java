@@ -24,7 +24,7 @@ public class BeerController {
 
     @GetMapping(value = {"/{beerId}"},
                 produces = "application/json; charset=UTF-8")
-    public ResponseEntity<BeerDto> getBeer(@PathVariable("beerId") UUID beerId){
+    public ResponseEntity<BeerDto> getBeerById(@PathVariable("beerId") UUID beerId){
 
         return new ResponseEntity<>(beerService.getBeerById(beerId), HttpStatus.OK);
     }
@@ -44,9 +44,7 @@ public class BeerController {
     public ResponseEntity handleUpdate(@PathVariable("beerId") UUID beerId,
                                       @RequestBody @Validated BeerDto beerDto){
 
-        beerService.updateBeer(beerId, beerDto);
-
-        return new ResponseEntity(HttpStatus.NO_CONTENT);
+        return new ResponseEntity(beerService.updateBeer(beerId, beerDto), HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping({"/{beerId}"})
