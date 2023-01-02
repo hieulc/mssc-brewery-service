@@ -4,6 +4,7 @@ package hieulc.spring.msscbreweryservice.web.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import hieulc.spring.msscbreweryservice.boostrap.BeerLoader;
 import hieulc.spring.msscbreweryservice.services.BeerService;
+import hieulc.spring.msscbreweryservice.services.inventory.BeerInventoryService;
 import hieulc.spring.msscbreweryservice.web.models.BeerDto;
 import hieulc.spring.msscbreweryservice.web.models.v2.BeerStyleEnum;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,6 +27,7 @@ import java.util.UUID;
 
 import static org.hamcrest.core.Is.is;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
@@ -46,6 +48,9 @@ public class BeerControllerTest {
     @MockBean
     BeerService beerService;
 
+    @MockBean
+    BeerInventoryService beerInventoryService;
+
     @Autowired
     MockMvc mockMvc;
 
@@ -58,7 +63,7 @@ public class BeerControllerTest {
     void setup() {
         validBeer = BeerDto.builder().id(UUID.randomUUID())
                 .beerName("Beer1")
-                .beerStyle(BeerStyleEnum.ALE)
+                .beerStyle(BeerStyleEnum.PALE_ALE)
                 .price(new BigDecimal("2.99"))
                 .upc(BeerLoader.BEER_1_UPC)
                 .build();
@@ -66,7 +71,7 @@ public class BeerControllerTest {
 
     @Test
     void getBeer() throws Exception {
-        given(beerService.getBeerById(any(UUID.class))).willReturn(validBeer);
+        given(beerService.getById(any(), anyBoolean())).willReturn(validBeer);
 
         mockMvc.perform(get("/api/v1/beer/{beerId}", validBeer.getId().toString())
                 .accept(MediaType.APPLICATION_JSON))
