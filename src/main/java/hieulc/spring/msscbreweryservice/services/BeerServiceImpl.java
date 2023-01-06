@@ -32,7 +32,6 @@ public class BeerServiceImpl implements BeerService {
         BeerPagedList beerPagedList;
         Page<Beer> beerPage;
 
-
         if (!StringUtils.isEmpty(beerName) && !StringUtils.isEmpty(beerStyle)) {
             //search both
             beerPage = beerRepository.findAllByBeerNameAndBeerStyle(beerName, beerStyle, pageRequest);
@@ -87,7 +86,6 @@ public class BeerServiceImpl implements BeerService {
     @Override
     public BeerDto getBeerByUpc(String upc, Boolean showInventoryOnHand) {
 
-        System.out.println("I was called");
 
         if (showInventoryOnHand) {
             return beerMapper.beerToBeerDtoWithInventory(beerRepository.findByUpc(upc).orElseThrow(NotFoundException::new));
