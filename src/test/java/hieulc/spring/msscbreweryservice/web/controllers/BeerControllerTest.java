@@ -29,10 +29,10 @@ import static org.hamcrest.core.Is.is;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.then;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
-import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.*;
-import static org.springframework.restdocs.payload.PayloadDocumentation.*;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
+import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
 import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
 import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
 import static org.springframework.restdocs.snippet.Attributes.key;
@@ -97,48 +97,48 @@ public class BeerControllerTest {
     }
 
 //    @Test
-    void saveNewBeer() throws Exception {
-        BeerDto beerDto = validBeer;
-        beerDto.setId(null);
-        BeerDto savedDto = BeerDto.builder().id(UUID.randomUUID()).beerName("New Beer").build();
-
-        ConstrainedFields fields = new ConstrainedFields(BeerDto.class);
-
-
-
-        String beerDtoJson = objectMapper.writeValueAsString(beerDto);
-        given(beerService.saveNewBeer(any())).willReturn(savedDto);
-        mockMvc.perform(post("/api/v1/beer/")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(beerDtoJson))
-                .andExpect(status().isCreated())
-                .andDo(document("v1/beer-new",
-                        requestFields(
-                                fields.withPath("id").ignored(),
-                                fields.withPath("version").ignored(),
-                                fields.withPath("createdDate").ignored(),
-                                fields.withPath("lastModifiedDate").ignored(),
-                                fields.withPath("beerName").description("Name of beer"),
-                                fields.withPath("beerStyle").description("Style of beer"),
-                                fields.withPath("upc").description("UPC of Beer"),
-                                fields.withPath("price").description("Beer Price"),
-                                fields.withPath("quantityOnHand").ignored()
-                        )));
-    }
+//    void saveNewBeer() throws Exception {
+//        BeerDto beerDto = validBeer;
+//        beerDto.setId(null);
+//        BeerDto savedDto = BeerDto.builder().id(UUID.randomUUID()).beerName("New Beer").build();
+//
+//        ConstrainedFields fields = new ConstrainedFields(BeerDto.class);
+//
+//
+//
+//        String beerDtoJson = objectMapper.writeValueAsString(beerDto);
+//        given(beerService.saveNewBeer(any())).willReturn(savedDto);
+//        mockMvc.perform(post("/api/v1/beer/")
+//                .contentType(MediaType.APPLICATION_JSON)
+//                .content(beerDtoJson))
+//                .andExpect(status().isCreated())
+//                .andDo(document("v1/beer-new",
+//                        requestFields(
+//                                fields.withPath("id").ignored(),
+//                                fields.withPath("version").ignored(),
+//                                fields.withPath("createdDate").ignored(),
+//                                fields.withPath("lastModifiedDate").ignored(),
+//                                fields.withPath("beerName").description("Name of beer"),
+//                                fields.withPath("beerStyle").description("Style of beer"),
+//                                fields.withPath("upc").description("UPC of Beer"),
+//                                fields.withPath("price").description("Beer Price"),
+//                                fields.withPath("quantityOnHand").ignored()
+//                        )));
+//    }
 
 //    @Test
-    public void handleUpdate() throws Exception {
-        BeerDto beerDto = validBeer;
-        beerDto.setId(null);
-        String beerDtoJson = objectMapper.writeValueAsString(beerDto);
-
-        mockMvc.perform(put("/api/v1/beer/" + UUID.randomUUID())
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(beerDtoJson))
-                .andExpect(status().isNoContent());
-
-        then(beerService).should().updateBeer(any(), any());
-    }
+//    public void handleUpdate() throws Exception {
+//        BeerDto beerDto = validBeer;
+//        beerDto.setId(null);
+//        String beerDtoJson = objectMapper.writeValueAsString(beerDto);
+//
+//        mockMvc.perform(put("/api/v1/beer/" + UUID.randomUUID())
+//                .contentType(MediaType.APPLICATION_JSON)
+//                .content(beerDtoJson))
+//                .andExpect(status().isNoContent());
+//
+//        then(beerService).should().updateBeer(any(), any());
+//    }
 
     private static class ConstrainedFields {
 

@@ -1,4 +1,11 @@
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/hieulc/mssc-brewery-service/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/hieulc/mssc-brewery-service/tree/main)
+# MSSC Brewery Beer Service
 
-# MSSC Brewery Service
-### Spring Boot Example
+---
+
+### Brewery Microservices:
+
+| Service Name                                                                       | Port |
+|------------------------------------------------------------------------------------|------|
+| [Brewery Beer Service](https://github.com/hieulc/mssc-brewery-service)                                                           | 8080 |
+| [Brewery Beer Order Service](https://github.com/hieulc/brewery-order-service)      | 8081 |
+| [Brewery Beer Inventory Service](https://github.com/hieulc/beer-inventory-service) | 8082 |
