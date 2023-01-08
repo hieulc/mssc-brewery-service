@@ -1,7 +1,9 @@
-package hieulc.spring.msscbreweryservice.services.inventory.config;
+package hieulc.spring.msscbreweryservice.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 @ConfigurationProperties(prefix = "hieulc.brewery")
 public class InventoryServiceConfig {
     private String beerInventoryServiceHost;

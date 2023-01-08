@@ -1,6 +1,6 @@
 package hieulc.spring.msscbreweryservice.services.inventory;
 
-import hieulc.spring.msscbreweryservice.services.inventory.config.InventoryServiceConfig;
+import hieulc.spring.msscbreweryservice.config.InventoryServiceConfig;
 import hieulc.spring.msscbreweryservice.services.inventory.model.BeerInventoryDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
