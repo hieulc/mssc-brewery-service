@@ -1,4 +1,4 @@
-package hieulc.spring.msscbreweryservice.services;
+package hieulc.spring.msscbreweryservice.services.brewing;
 
 import hieulc.spring.msscbreweryservice.config.JmsConfig;
 import hieulc.spring.msscbreweryservice.domains.Beer;
