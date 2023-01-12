@@ -16,6 +16,7 @@ public class JmsConfig {
 
     @Transactional
     @Bean
+    // inject default Jackson ObjectMapper parameter
     public MessageConverter jacksonJmsMessageConverter(ObjectMapper objectMapper) {
         MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
         converter.setTargetType(MessageType.TEXT);
