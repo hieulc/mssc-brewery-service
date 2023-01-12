@@ -2,7 +2,7 @@ package hieulc.spring.msscbreweryservice.services.brewing;
 
 import hieulc.spring.msscbreweryservice.config.JmsConfig;
 import hieulc.spring.msscbreweryservice.domains.Beer;
-import hieulc.spring.msscbreweryservice.event.BrewBeerEvent;
+import hieulc.spring.common.events.BrewBeerEvent;
 import hieulc.spring.msscbreweryservice.repositories.BeerRepository;
 import hieulc.spring.msscbreweryservice.services.inventory.BeerInventoryService;
 import hieulc.spring.msscbreweryservice.web.mappers.BeerMapper;

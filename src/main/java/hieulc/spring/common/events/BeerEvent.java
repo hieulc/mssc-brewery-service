@@ -1,4 +1,4 @@
-package hieulc.spring.msscbreweryservice.event;
+package hieulc.spring.common.events;
 
 import hieulc.spring.msscbreweryservice.web.models.BeerDto;
 import lombok.AllArgsConstructor;
